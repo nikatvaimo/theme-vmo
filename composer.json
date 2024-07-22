@@ -1,0 +1,30 @@
+{
+    "name": "vaimo/theme-vmo",
+    "type": "magento2-theme",
+    "description": "Theme for vmo project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Nikita Merezhko",
+            "email": "nikita.merezhko@vaimo.com"
+        },
+    ],
+    "require": {
+        "magento/framework": "~102.0 | ~103.0",
+        "magento/theme-frontend-blank": "~100.3"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ]
+    },
+    "extra": {
+        "vaimo-module-category": "theme"
+    },
+    "repositories": [
+        {
+            "url": "https://repo.magento.com/",
+            "type": "composer"
+        }
+    ]
+}
