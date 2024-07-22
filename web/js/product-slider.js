@@ -33,7 +33,7 @@ define([
             });
         },
 
-        _initSlickSlider: function() {
+        _initSlickSlider: function(selector) {
             var self = this;
 
             $(this.options.sliderClass).slick({
@@ -80,8 +80,8 @@ define([
                         arrows: true,
                         mobileFirst: true,
                         adaptiveHeight: false,
-                        nextArrow: '<button class="slick-next slick-next--products" aria-label="' + $t('Next') + '" type="button"><svg class="svg-icon"><use xlink:href="#icon-chevron-right" /></svg></button>',
-                        prevArrow: '<button class="slick-prev slick-prev--products" aria-label="' + $t('Previous') + '" type="button"><svg class="svg-icon"><use xlink:href="#icon-chevron-right" /></svg></button>',
+                        nextArrow: '<button class="slick-next slick-next--products" type="button"><svg class="svg-icon"><use xlink:href="#icon-chevron-right" /></svg></button>',
+                        prevArrow: '<button class="slick-prev slick-prev--products" type="button"><svg class="svg-icon"><use xlink:href="#icon-chevron-right" /></svg></button>',
 
                         responsive: [{
                             breakpoint: 640,
