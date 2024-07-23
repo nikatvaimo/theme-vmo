@@ -1,0 +1,46 @@
+<?php
+/** @var $block \Magento\Catalog\Block\Product\AbstractProduct */
+$products = $block->getItems();
+$type = $block->getType();
+?>
+
+<?php if (count($products)): ?>
+    <div id="product-grid-slider" class="products-grid products-grid--<?= $type?>"
+         data-mage-init='{"productSlider": {"sliderClass": ".products-<?= $block->escapeHtml($type) ?>", "onlySmallDevice": true}}'>
+        <?php foreach ($products as $_product):
+            $productUrl = $block->escapeUrl($block->getProductUrl($_product));
+            $productName = $block->escapeHtml($_product->getName());
+            ?>
+            <div class="product-item product-item--<?= $block->escapeHtml($type)?>">
+                <div class="product-item__photo"><a href="<?= $productUrl ?>" class="product-image product-item__image" title="<?= $productName ?>"><?= $block->getImage($_product, 'category_page_grid')->toHtml() ?></a></div>
+                <div class="product-item_details">
+                    <div class="product__item__content">
+                        <a class="product-name"
+                           title="<?= $productName ?>"
+                           href="<?= $productUrl ?>">
+                            <?= $productName ?>
+                        </a>
+
+                        <div class="productShort-description">
+                            <?= $_product->getShortDescription() ?>
+                        </div>
+
+                        <a href="<?= $block->getProductUrl($_product) ?>"
+                           class="product-item__action more">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <script type="text/x-magento-init">
+    {
+        "*": {
+            "MyVendor_MyCustomTheme/product-slider": {
+                "sliderClass": ".<?= $block->getNameInLayout() ?>"
+            }
+        }
+    }
+    </script>
+<?php endif; ?>
